@@ -1,7 +1,10 @@
 import auth from "../models/auth.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-const createUser = async (req, res) => {
+import AppError from "../utils/appError.js";
+import asyncHandler from "../middleware/asyncHandler.js";
+
+const createUser = asyncHandler(async (req, res) => {
   const { firstName, lastName, email, password } = req.body;
   let salt = await bcrypt.genSalt(10);
   let hash = await bcrypt.hash(password, salt);
@@ -9,7 +12,7 @@ const createUser = async (req, res) => {
   const existingUser = await auth.findOne({ email });
 
   if (existingUser) {
-    return res.status(400).json({ msg: "Email Already Registered...... " });
+    throw new AppError("Email Already Registered...... ", 400);
   }
 
   const data = await auth.create({
@@ -31,6 +34,6 @@ const createUser = async (req, res) => {
 
   res.setHeader("Authorization", `Bearer ${token}`);
   res.status(201).json({ msg: "User Created Successfully", data, token });
-};
+});
 
 export { createUser };
