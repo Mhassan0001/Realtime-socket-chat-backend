@@ -6,22 +6,35 @@ import morgan from "morgan";
 import errorHandler from "./middleware/errorHandler.js";
 import authRouter from "../src/routes/auth.js";
 import cors from "cors";
+import { createServer } from "http";
+import { Server } from "socket.io";
+const CLIENT_URL = "http://localhost:5173";
+
+//! =================================================
+
 const app = express();
 const port = process.env.PORT || 9000;
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+const server = createServer(app);
+app.use(cors({ origin: CLIENT_URL, credentials: true }));
 app.use(express.json());
 app.use(morgan("dev"));
 app.use("/auth", authRouter);
+
+const io = new Server(server, {
+  cors: { origin: CLIENT_URL, credentials: true },
+});
 app.get("/", (req, res) => {
   res.json({ msg: "Server Running Successfully....." });
 });
 
 app.use(errorHandler);
 
+//! =================================================
+
 connectDB()
   .then(() => {
-    app.listen(port, () => {
-      console.log(`Server Connected Successfully At ${port} & 
+    server.listen(port, () => {
+      console.log(`Server & Socket.Io Connected Successfully At ${port} & 
   MongoDB connected ✅........... `);
     });
   })
