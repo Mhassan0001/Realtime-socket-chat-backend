@@ -8,7 +8,8 @@ import authRouter from "../src/routes/auth.js";
 import cors from "cors";
 import { createServer } from "http";
 import { Server } from "socket.io";
-const CLIENT_URL = "http://localhost:5173";
+import socketHandler from "./sockets/socketHandler.js";
+const CLIENT_URL = "http://localhost:9000";
 
 //! =================================================
 
@@ -27,6 +28,7 @@ app.get("/", (req, res) => {
   res.json({ msg: "Server Running Successfully....." });
 });
 
+socketHandler(io);
 app.use(errorHandler);
 
 //! =================================================
