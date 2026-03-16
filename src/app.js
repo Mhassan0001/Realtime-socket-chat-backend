@@ -5,6 +5,7 @@ import connectDB from "./config/db.js";
 import morgan from "morgan";
 import errorHandler from "./middleware/errorHandler.js";
 import authRouter from "../src/routes/auth.js";
+import chatRouter from "../src/routes/chat.js";
 import cors from "cors";
 import { createServer } from "http";
 import { Server } from "socket.io";
@@ -20,6 +21,7 @@ app.use(cors({ origin: CLIENT_URL, credentials: true }));
 app.use(express.json());
 app.use(morgan("dev"));
 app.use("/auth", authRouter);
+app.use("/chat", chatRouter);
 
 const io = new Server(server, {
   cors: { origin: CLIENT_URL, credentials: true },
