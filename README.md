@@ -25,6 +25,26 @@ A **real-time chat application** built with the MERN stack and Socket.io, featur
 
 ---
 
+
+## 📂 Project Structure
+
+```bash
+CHATAPP/
+backend/
+ ├── src/
+ │   ├── config/
+ │   ├── Controllers/
+ │   ├── Middleware/
+ │   ├── models/
+ │   ├── routes/
+ │   ├── sockets/
+ │   ├── utils/
+ │   └── app.js
+ ├── package.json
+ └── .gitignore
+
+```
+
 ## 📌 Status
 
 Currently under development
