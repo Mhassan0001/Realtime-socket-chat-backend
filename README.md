@@ -31,17 +31,30 @@ A **real-time chat application** built with the MERN stack and Socket.io, featur
 ```bash
 CHATAPP/
 backend/
- ├── src/
- │   ├── config/
- │   ├── Controllers/
- │   ├── Middleware/
- │   ├── models/
- │   ├── routes/
- │   ├── sockets/
- │   ├── utils/
- │   └── app.js
- ├── package.json
- └── .gitignore
+  ├── src/
+  │   ├── config/
+  │   ├── Controllers/
+  │   ├── Middleware/
+  │   ├── models/
+  │   ├── routes/
+  │   ├── sockets/
+  │   ├── utils/
+  │   └── app.js
+  ├── package.json
+  └── .gitignore
+
+```
+
+## 📡 API Endpoints
+
+
+#### 🔑 Auth Routes
+
+```bash
+
+POST   /auth/create        -> Register new user   (Public)
+POST   /auth/login         -> Login user & get JWT (Public)
+POST   /auth/createAdmin   -> Create Admin user   (Admin only)
 
 ```
 
