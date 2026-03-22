@@ -2,6 +2,24 @@ import AppError from "../utils/appError.js";
 import asyncHandler from "../middleware/asyncHandler.js";
 import Chat from "../models/chat.js";
 import Room from "../models/room.js";
+//? ==============================================
+
+const createRoom = asyncHandler(async (req, res) => {
+  const member = req.body;
+  const userId = req.user.userId;
+  if (!member || member.length < 1)
+    throw new Error("Members are required to create a room", 400);
+
+  if (!member.includes(userId)) {
+    member.push(userId);
+  }
+
+  const room = await Room.create({ member });
+  res.status(201).json({
+    success: true,
+    data: room,
+  });
+});
 
 //? ==============================================
 
@@ -45,4 +63,4 @@ const getMessage = asyncHandler(async (req, res) => {
 
 //! ==============================================
 
-export { sendMessage, getMessage };
+export { sendMessage, getMessage, createRoom };
