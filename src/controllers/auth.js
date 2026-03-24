@@ -7,7 +7,7 @@ import asyncHandler from "../middleware/asyncHandler.js";
 //!================================================================
 
 const createUser = asyncHandler(async (req, res) => {
-  const { firstName, lastName, email, password } = req.body;
+  const { firstName, lastName, email, password, mobile } = req.body;
   let salt = await bcrypt.genSalt(10);
   let hash = await bcrypt.hash(password, salt);
 
@@ -21,6 +21,7 @@ const createUser = asyncHandler(async (req, res) => {
     firstName,
     lastName,
     email,
+    mobile,
     password: hash,
     role: "user",
   });
@@ -42,7 +43,7 @@ const createUser = asyncHandler(async (req, res) => {
 //!================================================================
 
 const createAdmin = asyncHandler(async (req, res) => {
-  const { firstName, lastName, email, password } = req.body;
+  const { firstName, lastName, email, password, mobile } = req.body;
   let salt = await bcrypt.genSalt(10);
   let hash = await bcrypt.hash(password, salt);
 
@@ -56,6 +57,7 @@ const createAdmin = asyncHandler(async (req, res) => {
     firstName,
     lastName,
     email,
+    mobile,
     password: hash,
     role: "admin",
   });
