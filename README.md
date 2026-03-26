@@ -58,6 +58,8 @@ POST   /auth/createAdmin   -> Create Admin user   (Admin only)
 
 ```
 
+#### 🔑 Chat Routes
+
 ## 📌 Status
 
 Currently under development
