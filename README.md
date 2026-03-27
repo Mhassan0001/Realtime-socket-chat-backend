@@ -60,6 +60,13 @@ POST   /auth/createAdmin   -> Create Admin user   (Admin only)
 
 #### 🔑 Chat Routes
 
+```bash
+
+POST   /chat/createRoom    -> Create new Room Only for Authentaic User (Authenticated)
+POST   /chat/send         -> Send Messages for Communication (Authenticated)
+POST   /chat/getMessages   -> Fetch messages from the database for a room. (Authenticated)
+
+```
 ## 📌 Status
 
 Currently under development
