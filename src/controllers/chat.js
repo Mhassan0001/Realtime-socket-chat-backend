@@ -29,14 +29,55 @@ const getUserByMobile = asyncHandler(async (req, res) => {
 
 //? ==============================================
 
-const createRoom = asyncHandler(async (req, res) => {
+const createPrivateRoom = asyncHandler(async (req, res) => {
+  const { member } = req.body;
+  const userId = req.user.userId;
+
+  if (!member || member.length != 1) {
+    throw new AppError("Only One User Allowed", 400);
+  }
+
+  const members = [userId, member[0]];
+  const existingRoom = await Room.findOne({
+    member: { $all: members, $size: 2 },
+  });
+
+  if (existingRoom) {
+    return res.status(200).json({
+      success: true,
+      data: existingRoom,
+    });
+  }
+
+  const room = await Room.create({ member: members });
+  res.status(201).json({
+    success: true,
+    data: room,
+  });
+});
+
+//? ==============================================
+
+const createGroupRoom = asyncHandler(async (req, res) => {
   const { member } = req.body;
   const userId = req.user.userId;
   if (!member || member.length < 1)
-    throw new Error("Members are required to create a room", 400);
+    throw new AppError("Members are required to create a room", 400);
 
   if (!member.includes(userId)) {
     member.push(userId);
+  }
+
+  const existingRoom = await Room.findOne({
+    member: { $all: member, $size: member.length },
+  });
+
+  if (existingRoom) {
+    return res.status(200).json({
+      success: true,
+      data: existingRoom,
+      message: "Room already exists",
+    });
   }
 
   const room = await Room.create({ member });
@@ -96,4 +137,10 @@ const getMessage = asyncHandler(async (req, res) => {
 
 //! ==============================================
 
-export { sendMessage, getMessage, createRoom, getUserByMobile };
+export {
+  sendMessage,
+  getMessage,
+  createGroupRoom,
+  getUserByMobile,
+  createPrivateRoom,
+};
