@@ -62,11 +62,15 @@ POST   /auth/createAdmin   -> Create Admin user   (Admin only)
 
 ```bash
 
-POST   /chat/createRoom    -> Create new Room Only for Authentaic User (Authenticated)
-POST   /chat/send         -> Send Messages for Communication (Authenticated)
-POST   /chat/getMessages   -> Fetch messages from the database for a room. (Authenticated)
+POST /chat/createRoom               → Create a new Group Room (Authenticated)
+POST /chat/createPrivateRoom        → Create a new Private Room (Authenticated)
+POST /chat/send                     → Send messages in a room (Authenticated)
+GET /chat/getMessages/:roomId       → Fetch all messages from a room (Authenticated)
+GET /chat/getUserByMobile/:mobile   → Fetch a user by mobile number (Authenticated)
+
 
 ```
+
 ## 📌 Status
 
 Currently under development
