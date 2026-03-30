@@ -61,6 +61,7 @@ backend/
   └── .gitignore
 
 ```
+---
 
 ## 📡 API Endpoints
 
@@ -85,8 +86,8 @@ POST /chat/send                     → Send messages in a room (Authenticated)
 GET /chat/getMessages/:roomId       → Fetch all messages from a room (Authenticated)
 GET /chat/getUserByMobile/:mobile   → Fetch a user by mobile number (Authenticated)
 
-
 ```
+---
 
 ## 📌 Status
 
