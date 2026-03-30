@@ -1,8 +1,7 @@
 # 🚀 Realtime_Chat (Socket.io)
 
-A **real-time chat application** built with the MERN stack and Socket.io, featuring secure authentication, efficient messaging, and scalable backend architecture.
-
----
+This is the **backend** of a real-time chat application built using **Node.js**, **Express**, **MongoDB**, and **Socket.io**.
+It handles authentication, real-time messaging, and API logic for the chat system.
 
 ## ✨ Features
 
