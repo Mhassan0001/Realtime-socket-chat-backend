@@ -96,8 +96,8 @@ GET /chat/getUserByMobile/:mobile   → Fetch a user by mobile number (Authentic
 * npm install
 
 ### 2️⃣ Create .env file
-* JWT_KEY=secrete
-* MONGO_URI=mongodb://127.0.0.1:27017/Realtime_Chat
+* JWT_KEY=your_secret_key
+* MONGO_URI=your_mongodb_uri
 * port=9000
 
 ### 3️⃣ Run the server
