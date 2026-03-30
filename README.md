@@ -26,7 +26,6 @@ messaging, and API logic for the chat system.
 - 🛠️ **Centralized Error Handling**  
   Clean and structured error handling middleware
 
----
 
 ## 🧠 Tech Stack
 
@@ -92,6 +91,7 @@ GET /chat/getUserByMobile/:mobile   → Fetch a user by mobile number (Authentic
 ## 📌 Status
 
 Currently under development
+
 ---
 
 ## 📫 Connect With Me
