@@ -88,9 +88,27 @@ GET /chat/getUserByMobile/:mobile   → Fetch a user by mobile number (Authentic
 ```
 ---
 
+## ⚙️ Setup & Installation
+
+ ### 1️⃣ Clone the repository
+* git clone https://github.com/Mhassan0001/Realtime-socket-chat-backend.git
+* cd Realtime-socket-chat-backend
+* npm install
+
+### 2️⃣ Create .env file
+* JWT_KEY=secrete
+* MONGO_URI=mongodb://127.0.0.1:27017/Realtime_Chat
+* port=9000
+
+### 3️⃣ Run the server
+* npm run dev
+
+---
+
 ## 📌 Status
 
-Currently under development
+* 🚧 Currently under development
+* Frontend will be available in a separate repository
 
 ---
 
