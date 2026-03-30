@@ -16,12 +16,17 @@ A **real-time chat application** built with the MERN stack and Socket.io, featur
 
 ---
 
-## 🛠 Tech Stack
+## 🧠 Tech Stack
 
-* **Backend:** Node.js, Express.js
-* **Database:** MongoDB (Mongoose)
-* **Authentication:** JWT, bcrypt
-* **Real-time:** Socket.io
+| Technology   | Usage              |
+|-------------|-------------------|
+| Node.js     | Backend runtime   |
+| Express.js  | Server framework  |
+| MongoDB     | Database          |
+| Mongoose    | ODM               |
+| Socket.io   | Real-time comms   |
+| JWT         | Authentication    |
+| bcrypt      | Password hashing  |
 
 ---
 
