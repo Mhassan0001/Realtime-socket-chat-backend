@@ -6,13 +6,23 @@ A **real-time chat application** built with the MERN stack and Socket.io, featur
 
 ## ✨ Features
 
-* 🔑 User authentication with **JWT**
-* 🔒 Password hashing with **bcrypt**
-* 🛡️ Protected routes & authorization middleware
-* 🌍 MongoDB Atlas integration with **Mongoose**
-* ⚡ Real-time messaging with **Socket.io**
-* 🛠 Error handling & logging
-* 🚧 Responsive design (Under Development)
+- 🔐 **User Authentication (JWT)**  
+  Secure signup & login using JSON Web Tokens
+
+- 🔒 **Password Hashing (bcrypt)**  
+  User passwords are securely hashed before storing
+
+- 🛡️ **Protected Routes & Authorization**  
+  Only authenticated users can access protected resources
+
+- ⚡ **Real-time Messaging (Socket.io)**  
+  Instant messaging without page reload
+
+- 🌍 **MongoDB Atlas Integration**  
+  Cloud database using Mongoose
+
+- 🛠️ **Centralized Error Handling**  
+  Clean and structured error handling middleware
 
 ---
 
