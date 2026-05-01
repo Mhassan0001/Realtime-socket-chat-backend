@@ -10,7 +10,7 @@ import cors from "cors";
 import { createServer } from "http";
 import { Server } from "socket.io";
 import socketHandler from "./sockets/socketHandler.js";
-const CLIENT_URL = "http://localhost:9000";
+const CLIENT_URL = "http://localhost:5173";
 
 //! =================================================
 
