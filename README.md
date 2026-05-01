@@ -1,27 +1,43 @@
+
 # 🚀 Realtime_Chat (Socket.io)
 
-A **real-time chat application** built with the MERN stack and Socket.io, featuring secure authentication, efficient messaging, and scalable backend architecture.
+This is the **Backend** of a real-time chat application built using **Node.js**, 
+**Express**, **MongoDB**, and **Socket.io**. It handles authentication, real-time 
+messaging, and API logic for the chat system.
 
----
 
 ## ✨ Features
 
-* 🔑 User authentication with **JWT**
-* 🔒 Password hashing with **bcrypt**
-* 🛡️ Protected routes & authorization middleware
-* 🌍 MongoDB Atlas integration with **Mongoose**
-* ⚡ Real-time messaging with **Socket.io**
-* 🛠 Error handling & logging
-* 🚧 Responsive design (Under Development)
+- 🔐 **User Authentication (JWT)**  
+  Secure signup & login using JSON Web Tokens
 
----
+- 🔒 **Password Hashing (bcrypt)**  
+  User passwords are securely hashed before storing
 
-## 🛠 Tech Stack
+- 🛡️ **Protected Routes & Authorization**  
+  Only authenticated users can access protected resources
 
-* **Backend:** Node.js, Express.js
-* **Database:** MongoDB (Mongoose)
-* **Authentication:** JWT, bcrypt
-* **Real-time:** Socket.io
+- ⚡ **Real-time Messaging (Socket.io)**  
+  Instant messaging without page reload
+
+- 🌍 **MongoDB Atlas Integration**  
+  Cloud database using Mongoose
+
+- 🛠️ **Centralized Error Handling**  
+  Clean and structured error handling middleware
+
+
+## 🧠 Tech Stack
+
+| Technology   | Usage              |
+|-------------|-------------------|
+| Node.js     | Backend runtime   |
+| Express.js  | Server framework  |
+| MongoDB     | Database          |
+| Mongoose    | ODM               |
+| Socket.io   | Real-time comms   |
+| JWT         | Authentication    |
+| bcrypt      | Password hashing  |
 
 ---
 
@@ -44,6 +60,7 @@ backend/
   └── .gitignore
 
 ```
+---
 
 ## 📡 API Endpoints
 
@@ -62,14 +79,37 @@ POST   /auth/createAdmin   -> Create Admin user   (Admin only)
 
 ```bash
 
-POST   /chat/createRoom    -> Create new Room Only for Authentaic User (Authenticated)
-POST   /chat/send         -> Send Messages for Communication (Authenticated)
-POST   /chat/getMessages   -> Fetch messages from the database for a room. (Authenticated)
+POST /chat/createRoom               → Create a new Group Room (Authenticated)
+POST /chat/createPrivateRoom        → Create a new Private Room (Authenticated)
+POST /chat/send                     → Send messages in a room (Authenticated)
+GET /chat/getMessages/:roomId       → Fetch all messages from a room (Authenticated)
+GET /chat/getUserByMobile/:mobile   → Fetch a user by mobile number (Authenticated)
 
 ```
+---
+
+## ⚙️ Setup & Installation
+
+ ### 1️⃣ Clone the repository
+* git clone https://github.com/Mhassan0001/Realtime-socket-chat-backend.git
+* cd Realtime-socket-chat-backend
+* npm install
+
+### 2️⃣ Create .env file
+* JWT_KEY=your_secret_key
+* MONGO_URI=your_mongodb_uri
+* port=9000
+
+### 3️⃣ Run the server
+* npm run dev
+
+---
+
 ## 📌 Status
 
-Currently under development
+* 🚧 Currently under development
+* Frontend will be available in a separate repository
+
 ---
 
 ## 📫 Connect With Me
