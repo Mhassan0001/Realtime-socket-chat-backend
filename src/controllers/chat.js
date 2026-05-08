@@ -13,9 +13,9 @@ const getUserByMobile = asyncHandler(async (req, res) => {
     throw new AppError("Mobile No is Required", 400);
   }
 
-  const user = await User.findOne({ mobile }).select(
-    "_id firstName lastName email mobile",
-  );
+  const user = await User.find({
+    mobile: { $regex: mobile, $options: "i" },
+  }).select("_id firstName lastName email mobile");
 
   if (!user) {
     throw new AppError("User not found", 404);
